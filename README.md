@@ -58,6 +58,6 @@ Some GPUs may be displayed as "Unknown GPU (vendor:device)".
 
 If your GPU is detected as unknown feel free to open an issue with the reported vendor/device ID and I'll fix it in my spare time.
 
-Some package managers may not be detected, currently the fetch supports: apk, dnf, dpkg, portage, pacman. 
+Some package managers may not be detected. Currently cfetch supports: apk, dnf, dpkg, portage, pacman. 
 
 If your package manager isn't detected feel free to open an issue with your package manager's name and I'll add it to the list.
