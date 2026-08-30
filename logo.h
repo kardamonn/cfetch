@@ -7,5 +7,6 @@ void load_logo(void);
 const char *get_logo_line(int line);
 int get_logo_height(void);
 void free_logo(void);
+const char *get_logo_color(void);
 
 #endif

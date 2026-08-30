@@ -47,6 +47,13 @@ Remember to rebuild and reinstall cfetch after changing the colors:
 
 (or `doas make install` if you use doas).
 
+Though I added the option to change logo colors:
+
+Create ~/.config/cfetch/config
+Add logo_color=magenta (or whatever color is supported).
+
+Supported colors: black, red, green, yellow, blue, magenta, cyan, white.
+
 License:
 
 MIT License, see LICENSE for more info.

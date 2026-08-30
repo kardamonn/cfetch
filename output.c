@@ -66,7 +66,9 @@ static void print_border(size_t logo_width, size_t info_width)
     for (size_t i = 0; i < info_width + 2; i++)
         putchar('-');
 
-    printf("+\n" COLOR_RESET);
+    putchar('\n');
+
+    printf(COLOR_RESET);
 }
 
 void print_info(const InfoItem *items, size_t count)
@@ -99,7 +101,10 @@ void print_info(const InfoItem *items, size_t count)
          * Left side: logo
          */
         printf(COLOR_BORDER "| " COLOR_RESET);
-        printf("%-*s", (int)logo_width, logo_line);
+        printf("%s%-*s\033[0m",
+       get_logo_color(),
+       (int)logo_width,
+       logo_line);
         printf(COLOR_BORDER " |" COLOR_RESET);
 
         /*
@@ -113,7 +118,7 @@ void print_info(const InfoItem *items, size_t count)
                    items[i].value);
 
             /*
-             * Pad the right side so the border stays aligned.
+             * Pad the right side.
              */
             size_t used = 1 + 10 + 1 + value_length;
 
@@ -127,7 +132,10 @@ void print_info(const InfoItem *items, size_t count)
             printf(" %-*s ", (int)info_width, "");
         }
 
-        printf(COLOR_BORDER "|" COLOR_RESET "\n");
+        /*
+         * No right border.
+         */
+        putchar('\n');
     }
 
     /*
