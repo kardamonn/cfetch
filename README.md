@@ -56,4 +56,4 @@ Known issues:
 GPU detection is currently based on a small built-in PCI ID table.
 Some GPUs may be displayed as "Unknown GPU (vendor:device)".
 
-If your GPU isn detected as unknown feel free to open an issue with the reported vendor/device ID and I'll fix it in my spare time.
+If your GPU is detected as unknown feel free to open an issue with the reported vendor/device ID and I'll fix it in my spare time.
