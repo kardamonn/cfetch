@@ -47,7 +47,7 @@ Example config file:
 
 label_color=blue
 
-logo=color=green
+logo_color=green
 
 border_color=magenta
 
