@@ -10,7 +10,11 @@ struct gpu_id {
 };
 
 static const struct gpu_id gpu_table[] = {
+    /* Intel */
     {"0x8086", "0x1616", "Intel HD Graphics 5500"},
+
+    /* AMD */
+    {"0x1002", "0x73ff", "AMD Radeon RX 6600"},
 };
 
 static const int gpu_table_size =
