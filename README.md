@@ -37,11 +37,14 @@ Changing the colors:
 Yes I finally added border and label color changing.
 
 First off make sure `~/.config/cfetch/config` exists
-(If not present make it with `mkdir -p ~/.config/cfetch/` then cd into it with `cd ~/.config/cfetch/` and finally create the config file by running `touch config`.
-inside the config you can change:
+
+If it is not present make it with `mkdir -p ~/.config/cfetch/` then cd into it with `cd ~/.config/cfetch/` and finally create the config file by running `touch config`.
+
+Inside the config you can change:
 logo colors, border colors and label colors.
 
-example config file:
+Example config file:
+
 label_color=blue
 logo=color=green
 border_color=magenta
