@@ -46,7 +46,9 @@ logo colors, border colors and label colors.
 Example config file:
 
 label_color=blue
+
 logo=color=green
+
 border_color=magenta
 
 Supported colors: black, red, green, yellow, blue, magenta, cyan, white.
