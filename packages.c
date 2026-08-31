@@ -50,7 +50,7 @@ static int run_package_command(
 
 int get_packages(char *buffer, size_t size)
 {
-    /* Arch / Artix / Manjaro */
+    /* Arch / Artix / Or any other distro which uses pacman */
     if (command_exists("pacman")) {
         return run_package_command(
             buffer,
