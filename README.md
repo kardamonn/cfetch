@@ -34,23 +34,17 @@ If no custom logo is present, cfetch will use the default ASCII cat.
 
 Changing the colors:
 
-I didn't bother implementing a color configuration, so the colors can be
-changed directly in `output.c`.
+Yes I finally added border and label color changing.
 
-The color definitions are near the top of the file, for example:
+First off make sure `~/.config/cfetch/config` exists
+(If not present make it with `mkdir -p ~/.config/cfetch/` then cd into it with `cd ~/.config/cfetch/` and finally create the config file by running `touch config`.
+inside the config you can change:
+logo colors, border colors and label colors.
 
-`#define COLOR_BORDER "\033[35m"`
-
-Remember to rebuild and reinstall cfetch after changing the colors:
-
-`sudo make install`
-
-(or `doas make install` if you use doas).
-
-Though I added the option to change logo colors:
-
-Create ~/.config/cfetch/config
-Add logo_color=magenta (or whatever color is supported).
+example config file:
+label_color=blue
+logo=color=green
+border_color=magenta
 
 Supported colors: black, red, green, yellow, blue, magenta, cyan, white.
 

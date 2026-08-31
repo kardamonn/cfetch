@@ -89,7 +89,7 @@ void free_logo(void)
     logo_line_count = 0;
 }
 
-const char *get_logo_color(void)
+static const char *get_config_color(const char *option)
 {
     static char color[16];
     const char *home = getenv("HOME");
@@ -112,12 +112,16 @@ const char *get_logo_color(void)
         return "\033[0m";
 
     char line[64];
+    char key[32];
+
+    snprintf(key, sizeof(key), "%s=", option);
 
     while (fgets(line, sizeof(line), file) != NULL) {
-        if (strncmp(line, "logo_color=", 11) != 0)
+        if (strncmp(line, key, strlen(key)) != 0)
             continue;
 
-        char *value = line + 11;
+        char *value = line + strlen(key);
+
         value[strcspn(value, "\n")] = '\0';
 
         if (strcmp(value, "black") == 0)
@@ -144,5 +148,21 @@ const char *get_logo_color(void)
     }
 
     fclose(file);
+
     return "\033[0m";
+}
+
+const char *get_logo_color(void)
+{
+    return get_config_color("logo_color");
+}
+
+const char *get_border_color(void)
+{
+    return get_config_color("border_color");
+}
+
+const char *get_label_color(void)
+{
+    return get_config_color("label_color");
 }

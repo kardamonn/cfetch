@@ -7,9 +7,7 @@
 #define MIN_LOGO_WIDTH 11
 #define MIN_INFO_WIDTH 30
 
-#define COLOR_BORDER "\033[35m"
-#define COLOR_LABEL  "\033[36m"
-#define COLOR_RESET  "\033[0m"
+#define COLOR_RESET "\033[0m"
 
 static size_t get_logo_width(void)
 {
@@ -56,7 +54,9 @@ static size_t get_info_width(const InfoItem *items, size_t count)
 
 static void print_border(size_t logo_width, size_t info_width)
 {
-    printf(COLOR_BORDER "+");
+    const char *border_color = get_border_color();
+
+    printf("%s+", border_color);
 
     for (size_t i = 0; i < logo_width + 2; i++)
         putchar('-');
@@ -66,9 +66,7 @@ static void print_border(size_t logo_width, size_t info_width)
     for (size_t i = 0; i < info_width + 2; i++)
         putchar('-');
 
-    putchar('\n');
-
-    printf(COLOR_RESET);
+    printf("\n" COLOR_RESET);
 }
 
 void print_info(const InfoItem *items, size_t count)
@@ -100,12 +98,14 @@ void print_info(const InfoItem *items, size_t count)
         /*
          * Left side: logo
          */
-        printf(COLOR_BORDER "| " COLOR_RESET);
-        printf("%s%-*s\033[0m",
-       get_logo_color(),
-       (int)logo_width,
-       logo_line);
-        printf(COLOR_BORDER " |" COLOR_RESET);
+        printf("%s| " COLOR_RESET, get_border_color());
+
+        printf("%s%-*s" COLOR_RESET,
+               get_logo_color(),
+               (int)logo_width,
+               logo_line);
+
+        printf("%s |" COLOR_RESET, get_border_color());
 
         /*
          * Right side: system information
@@ -113,9 +113,10 @@ void print_info(const InfoItem *items, size_t count)
         if (i < count) {
             size_t value_length = strlen(items[i].value);
 
-            printf(" " COLOR_LABEL "%-10s" COLOR_RESET " %s",
-                   items[i].label,
-                   items[i].value);
+            printf(" \033[1m%s%-10s" COLOR_RESET " %s",
+		    get_label_color(),
+		    items[i].label,
+		    items[i].value);
 
             /*
              * Pad the right side.
