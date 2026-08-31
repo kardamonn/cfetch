@@ -12,6 +12,9 @@ struct gpu_id {
 static const struct gpu_id gpu_table[] = {
     /* Intel */
     {"0x8086", "0x1616", "Intel HD Graphics 5500"},
+    {"0x8086", "0x22b1", "Intel HD Graphics"},
+    {"0x8086", "0x0f31", "Intel HD Graphics 400"},
+    {"0x8086", "0x0046", "Intel HD Graphics"},
 
     /* AMD */
     {"0x1002", "0x73ff", "AMD Radeon RX 6600"},
