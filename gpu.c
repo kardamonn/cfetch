@@ -18,6 +18,7 @@ static const struct gpu_id gpu_table[] = {
 
     /* AMD */
     {"0x1002", "0x73ff", "AMD Radeon RX 6600"},
+    {"0x1002", "0x9851", "AMD Radeon R4 Graphics"},
 };
 
 static const int gpu_table_size =
